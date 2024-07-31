@@ -1,0 +1,303 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    overflow: hidden;
+    z-index: -1;
+    background: #000;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.layer-back {
+    background: url('ruta/background1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: moveBackground 20s linear infinite;
+}
+
+.layer-middle {
+    background: url('ruta/background2.png') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.6;
+    animation: moveBackground 15s linear infinite reverse;
+}
+
+.layer-front {
+    background: url('ruta/background3.png') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.3;
+    animation: moveBackground 10s linear infinite reverse;
+}
+
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-out, glow 1.5s alternate infinite;
+}
+
+.photo-section {
+    margin: 20px 0;
+}
+
+.photo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.message-section {
+    margin: 20px 0;
+}
+
+.message-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.message {
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.message:hover {
+    transform: scale(1.5);
+    color: #ff6f61;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61;
+    }
+    100% {
+        text-shadow: 0 0 20px #ff6f61, 0 0 30px #ff6f61;
+    }
+}
+
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('ruta/heart.png') no-repeat center center;
+    background-size: contain;
+    animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+#heart1 {
+    left: 10%;
+    animation-duration: 12s;
+}
+
+#heart2 {
+    left: 30%;
+    animation-duration: 14s;
+}
+
+#heart3 {
+    left: 50%;
+    animation-duration: 16s;
+}
+
+#heart4 {
+    left: 70%;
+    animation-duration: 18s;
+}
+
+#heart5 {
+    left: 90%;
+    animation-duration: 20s;
+}
+
+.floating-gifs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.gif {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: floatGif 15s ease-in-out infinite;
+}
+
+@keyframes floatGif {
+    0% {
+        transform: translateY(100vh) rotate(0);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+#gif1 {
+    left: 20%;
+    animation-duration: 12s;
+}
+
+#gif2 {
+    left: 40%;
+    animation-duration: 14s;
+}
+
+#gif3 {
+    left: 60%;
+    animation-duration: 16s;
+}
+
+.animated-button {
+    display: inline-block;
+    margin: 20px;
+    padding: 15px 30px;
+    background-color: #ff6f61;
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid #ff6f61;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s, background-color 0.4s;
+}
+
+.animated-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.4s;
+}
+
+.animated-button:hover::before {
+    width: 0;
+    height: 0;
+}
+
+.animated-button:hover {
+    color: #ff6f61;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #title {
+        font-size: 2em;
+    }
+
+    .photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .message {
+        font-size: 1.2em;
+    }
+
+    .gif {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    #title {
+        font-size: 1.5em;
+    }
+
+    .photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .message {
+        font-size: 1em;
+    }
+
+    .gif {
+        width: 40px;
+        height: 40px;
+    }
+}
